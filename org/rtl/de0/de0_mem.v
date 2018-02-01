@@ -4,7 +4,7 @@
 // MODULE: altsyncram
 
 // ============================================================
-// File Name: memory.v
+// File Name: de0_mem.v
 // Megafunction Name(s):
 //          altsyncram
 //
@@ -43,7 +43,7 @@ module memini (
    wren,
    q);
 
-   input [14:0]  address;
+   input [13:0]  address;
    input   clock;
    input [7:0]  data;
    input   wren;
@@ -86,18 +86,18 @@ module memini (
    defparam
       altsyncram_component.clock_enable_input_a = "BYPASS",
       altsyncram_component.clock_enable_output_a = "BYPASS",
-      altsyncram_component.init_file = "../../syn/de0/out/memini.mif",
+      altsyncram_component.init_file = "../../../tst/rom/memini.mif",
       altsyncram_component.intended_device_family = "Cyclone III",
       altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=NO",
       altsyncram_component.lpm_type = "altsyncram",
-      altsyncram_component.numwords_a = 32768,
+      altsyncram_component.numwords_a = 16384,
       altsyncram_component.operation_mode = "SINGLE_PORT",
       altsyncram_component.outdata_aclr_a = "NONE",
       altsyncram_component.outdata_reg_a = "UNREGISTERED",
       altsyncram_component.power_up_uninitialized = "FALSE",
       altsyncram_component.ram_block_type = "M9K",
       altsyncram_component.read_during_write_mode_port_a = "DONT_CARE",
-      altsyncram_component.widthad_a = 15,
+      altsyncram_component.widthad_a = 14,
       altsyncram_component.width_a = 8,
       altsyncram_component.width_byteena_a = 1;
 

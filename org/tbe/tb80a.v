@@ -50,7 +50,7 @@ begin
       mem[i] = 8'h00;
    end
 
-   $readmemh("memini.bin", mem);
+   $readmemh("..\\..\\..\\tst\\rom\\memini.bin", mem);
 end
 endmodule
 

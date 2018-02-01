@@ -185,8 +185,8 @@ set_location_assignment PIN_V22 -to de0_uart_rts
 set_location_assignment PIN_V21 -to de0_uart_cts
 set_location_assignment PIN_Y21 -to de0_sd_clk
 set_location_assignment PIN_Y22 -to de0_sd_cmd
-set_location_assignment PIN_AA22 -to de0_sd_dat0
-set_location_assignment PIN_W21 -to de0_sd_dat3
+set_location_assignment PIN_AA22 -to de0_sd_mosi
+set_location_assignment PIN_W21 -to de0_sd_miso
 set_location_assignment PIN_W20 -to de0_sd_wp_n
 set_location_assignment PIN_C20 -to de0_lcd_data[7]
 set_location_assignment PIN_D20 -to de0_lcd_data[6]
@@ -368,8 +368,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_lcd_data[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_lcd_blig
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_uart_cts
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_sd_wp_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_sd_dat3
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_sd_dat0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_sd_mosi
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_sd_miso
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_sd_cmd
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_sd_clk
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to de0_ps2_msdat
@@ -416,7 +416,7 @@ set_global_assignment -name TOP_LEVEL_ENTITY de0
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 12.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:41:40  AUGUST 01, 2014"
 set_global_assignment -name LAST_QUARTUS_VERSION "12.1 SP1"
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY out
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
@@ -495,13 +495,14 @@ set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR ../../sim/de0 -section
 set_global_assignment -name SAVE_DISK_SPACE OFF
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
 set_global_assignment -name EDA_TEST_BENCH_FILE ../../tbe/tb80a.v -section_id tb80a
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE out/stp4.stp
 set_global_assignment -name SOURCE_FILE ../../tbe/config.h
 set_global_assignment -name VERILOG_FILE ../../tbe/tb80a.v
 set_global_assignment -name VERILOG_FILE ../../rtl/de0/de0_top.v
 set_global_assignment -name VERILOG_FILE ../../rtl/de0/de0_mem.v
 set_global_assignment -name VERILOG_FILE ../../rtl/de0/de0_uart.v
 set_global_assignment -name VERILOG_FILE ../../rtl/vm80a.v
-set_global_assignment -name MIF_FILE out/memini.mif
-set_global_assignment -name ENABLE_SIGNALTAP OFF
-set_global_assignment -name USE_SIGNALTAP_FILE out/stp4.stp
+set_global_assignment -name MIF_FILE ../../../tst/rom/memini.mif
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

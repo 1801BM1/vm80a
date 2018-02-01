@@ -1,4 +1,4 @@
-Creative Commons 3.0 CC-BY license
+## Creative Commons 3.0 CC-BY license
 
 CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL 
 SERVICES. DISTRIBUTION OF THIS LICENSE DOES NOT CREATE AN ATTORNEY-CLIENT
@@ -6,7 +6,7 @@ RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS INFORMATION ON AN "AS-IS" BASIS.
 CREATIVE COMMONS MAKES NO WARRANTIES REGARDING THE INFORMATION PROVIDED, 
 AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM ITS USE.
 
-License
+#### License
 
 THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY
@@ -18,7 +18,7 @@ TO BE BOUND BY THE TERMS OF THIS LICENSE. TO THE EXTENT THIS LICENSE MAY BE
 CONSIDERED TO BE A CONTRACT, THE LICENSOR GRANTS YOU THE RIGHTS CONTAINED
 HERE IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH TERMS AND CONDITIONS.
 
-1. Definitions
+#### 1. Definitions
 
 "Adaptation" means a work based upon the Work, or upon the Work and other
 pre-existing works, such as a translation, adaptation, derivative work,
@@ -98,14 +98,14 @@ limitation by sound or visual recordings and the right of fixation and
 reproducing fixations of the Work, including storage of a protected
 performance or phonogram in digital form or other electronic medium.
 
-2. Fair Dealing Rights. 
+#### 2. Fair Dealing Rights. 
 
 Nothing in this License is intended to reduce, limit, or restrict any uses
 free from copyright or rights arising from limitations or exceptions that
 are provided for in connection with the copyright protection under copyright
 law or other applicable laws.
 
-3. License Grant.
+#### 3. License Grant.
 
 Subject to the terms and conditions of this License, Licensor hereby grants 
 You a worldwide, royalty-free, non-exclusive, perpetual (for the duration of
@@ -153,7 +153,7 @@ such modifications as are technically necessary to exercise the rights
 in other media and formats. Subject to Section 8(f), all rights not
 expressly granted by Licensor are hereby reserved.
 
-4. Restrictions. 
+#### 4. Restrictions. 
 
 The license granted in Section 3 above is expressly made subject to
 and limited by the following restrictions:
@@ -227,7 +227,7 @@ by the applicable national law, to enable You to reasonably exercise
 Your right under Section 3(b) of this License (right to make Adaptations)
 but not otherwise.
 
-5. Representations, Warranties and Disclaimer
+#### 5. Representations, Warranties and Disclaimer
 
 UNLESS OTHERWISE MUTUALLY AGREED TO BY THE PARTIES IN WRITING, LICENSOR
 OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY
@@ -238,13 +238,13 @@ OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OF ABSENCE OF ERRORS, WHETHER
 OR NOT DISCOVERABLE. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED
 WARRANTIES, SO SUCH EXCLUSION MAY NOT APPLY TO YOU.
 
-6. Limitation on Liability. EXCEPT TO THE EXTENT REQUIRED BY APPLICABLE LAW,
+#### 6. Limitation on Liability. EXCEPT TO THE EXTENT REQUIRED BY APPLICABLE LAW,
 IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY
 SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE OR EXEMPLARY DAMAGES ARISING
 OUT OF THIS LICENSE OR THE USE OF THE WORK, EVEN IF LICENSOR HAS BEEN
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-7. Termination
+#### 7. Termination
 
 This License and the rights granted hereunder will terminate automatically
 upon any breach by You of the terms of this License. Individuals or entities
@@ -262,7 +262,7 @@ License (or any other license that has been, or is required to be, granted
 under the terms of this License), and this License will continue in full
 force and effect unless terminated as stated above.
 
-8. Miscellaneous
+#### 8. Miscellaneous
 
 Each time You Distribute or Publicly Perform the Work or a Collection,
 the Licensor offers to the recipient a license to the Work on the same
@@ -304,7 +304,7 @@ this License, such additional rights are deemed to be included in the
 License; this License is not intended to restrict the license of any
 rights under applicable law. 
 
-Creative Commons Notice
+#### Creative Commons Notice
 
 Creative Commons is not a party to this License, and makes no warranty
 whatsoever in connection with the Work. Creative Commons will not be

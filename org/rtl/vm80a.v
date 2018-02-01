@@ -849,8 +849,8 @@ assign c[6] = (r[6] & x[6]) | (c[5] & (r[6] | x[6]));
 assign c[7] = (r[7] & x[7]) | (c[6] & (r[7] | x[7]));
 
 assign alu_zrd = m1f1 & t3f1;
-assign alu_frd = t2046; /* | t4f1 & (id_11x & ~id_out); 
-								// as we do need to translate flags on the bus for conditional unit anymore */
+assign alu_frd = t2046; /* | t4f1 & (id_11x & ~id_out);
+                        // as we do need to translate flags on the bus for conditional unit anymore */
 
 assign a398 = t1993 & ((t1994 & id08) | id_opa | id_stlda | id_lsax | id_io);
 

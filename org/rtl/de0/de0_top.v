@@ -11,7 +11,10 @@
 // Global system clock
 //
 `define  SYS_CLOCK                  50000000
-
+//
+// Console baudrate
+//
+`define  SYS_BAUD                   115200
 //______________________________________________________________________________
 //
 // Reset button debounce interval (in ms))
@@ -73,8 +76,8 @@ module de0
    output         de0_lcd_rs,          // LCD command/data select, 0 = command, 1 = data
    inout    [7:0] de0_lcd_data,        // LCD data bus 8 bits
                                        //
-   inout          de0_sd_dat0,         // SD Card Data 0
-   inout          de0_sd_dat3,         // SD Card Data 3
+   inout          de0_sd_mosi,         // SD Card Data Output
+   inout          de0_sd_miso,         // SD Card Data Input
    inout          de0_sd_cmd,          // SD Card Command Signal
    output         de0_sd_clk,          // SD Card Clock
    input          de0_sd_wp_n,         // SD Card Write Protect
@@ -99,7 +102,7 @@ module de0
    inout   [31:0] de0_gpio1_d          // GPIO Connection 1 Data Bus
 );
 
-wire [31:0]	baud = 921600/115200-1;
+wire [31:0] baud = 921600/`SYS_BAUD-1;
 wire clk, wr_n, rst_n, dbin;
 wire  [7:0] dcpu;
 wire  [7:0] dsys;
@@ -119,10 +122,10 @@ wire inte, sync;
 
 assign clk = de0_clock_50;
 assign rst_n = (rcnt == 8'hFF);
-assign dsys = inta ? 8'hE7 
-            : (a[15:8] == 8'hFF) ? {5'h00, de0_button[2:0]} 
-				: (a[15:8] == 8'hFE) ? dsio
-				: dram;
+assign dsys = inta ? 8'hE7
+            : (a[15:8] == 8'hFF) ? {5'h00, de0_button[2:0]}
+    : (a[15:8] == 8'hFE) ? dsio
+    : dram;
 
 always @(posedge clk)
 begin
@@ -156,10 +159,10 @@ end
 
 memini ram
 (
-   .address(a[14:0]),
+   .address(a[13:0]),
    .clock(clk),
    .data(dcpu),
-   .wren(~wr_n & rst_n & ~a[15]),
+   .wren(~wr_n & rst_n & ~a[15] & ~a[14]),
    .q(dram)
 );
 
@@ -177,36 +180,36 @@ end
 
 //______________________________________________________________________________
 //
-`ifdef SYS_CLOCK	
+`ifdef SYS_CLOCK
 defparam uart.REFCLK = `SYS_CLOCK;
 `endif
 
 uart_wb uart
 (
-	.wb_clk_i(clk),
-	.wb_rst_i(~rst_n),
-	.wb_adr_i(a[0]),
-	.wb_dat_i(dcpu),
+ .wb_clk_i(clk),
+ .wb_rst_i(~rst_n),
+ .wb_adr_i(a[0]),
+ .wb_dat_i(dcpu),
    .wb_dat_o(dsio),
-	.wb_cyc_i((~wr_n | dbin) & (a[15:8] == 8'hFE)),
-	.wb_we_i(~wr_n & (a[15:8] == 8'hFE)),
-	.wb_stb_i((~wr_n | (dbin & ~uack)) & (a[15:8] == 8'hFE)),
-	.wb_ack_o(uack),
+ .wb_cyc_i((~wr_n | dbin) & (a[15:8] == 8'hFE)),
+ .wb_we_i(~wr_n & (a[15:8] == 8'hFE)),
+ .wb_stb_i((~wr_n | (dbin & ~uack)) & (a[15:8] == 8'hFE)),
+ .wb_ack_o(uack),
 
-	.tx_dat_o(de0_uart_txd),
-	.tx_cts_i(1'b0),
-	.rx_dat_i(de0_uart_rxd),
-	.rx_dtr_o(de0_uart_cts),
+ .tx_dat_o(de0_uart_txd),
+ .tx_cts_i(1'b0),
+ .rx_dat_i(de0_uart_rxd),
+ .rx_dtr_o(de0_uart_cts),
 
-//	.tx_ready(),
-//	.tx_empty(),
-//	.rx_ready(),
+// .tx_ready(),
+// .tx_empty(),
+// .rx_ready(),
 
-	.cfg_bdiv(baud[15:0]),
-	.cfg_nbit(2'b11),
-	.cfg_nstp(1'b1),
-	.cfg_pena(1'b0),
-	.cfg_podd(1'b0)
+ .cfg_bdiv(baud[15:0]),
+ .cfg_nbit(2'b11),
+ .cfg_nstp(1'b1),
+ .cfg_pena(1'b0),
+ .cfg_podd(1'b0)
 );
 
 vm80a_core cpu
@@ -222,7 +225,7 @@ vm80a_core cpu
    .pin_ready(1'b1),
    .pin_int(intrq),
    .pin_wr_n(wr_n),
-	.pin_dbin(dbin),
+   .pin_dbin(dbin),
    .pin_inte(inte),
    .pin_sync(sync)
 );
@@ -271,9 +274,9 @@ assign   de0_lcd_rw     = 1'b0;
 assign   de0_lcd_en     = 1'b0;
 assign   de0_lcd_rs     = 1'b0;
 
-assign   de0_sd_clk     = 1'b0;
-assign   de0_sd_dat0    = 1'hz;
-assign   de0_sd_dat3    = 1'hz;
+assign   de0_sd_clk     = 1'h0;
+assign   de0_sd_mosi    = 1'hz;
+assign   de0_sd_miso    = 1'hz;
 assign   de0_sd_cmd     = 1'hz;
 
 assign   de0_ps2_kbdat  = 1'hz;
